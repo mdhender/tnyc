@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# This repository has no services or authentication to restore after wake.
+printf '[resume] no runtime services to restore\n'
