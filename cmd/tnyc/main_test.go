@@ -16,3 +16,23 @@ func TestVersionCommand(t *testing.T) {
 		t.Errorf("stderr = %q, want empty", got)
 	}
 }
+
+func TestRootCommands(t *testing.T) {
+	want := map[string]bool{
+		"api":      false,
+		"database": false,
+		"game":     false,
+	}
+
+	for _, command := range newRootCommand().Commands() {
+		if _, ok := want[command.Name()]; ok {
+			want[command.Name()] = command.Runnable()
+		}
+	}
+
+	for name, runnable := range want {
+		if !runnable {
+			t.Errorf("root command %q is missing or not runnable", name)
+		}
+	}
+}

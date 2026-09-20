@@ -58,6 +58,30 @@ func newRootCommand() *cobra.Command {
 			fmt.Fprintln(cmd.OutOrStdout(), tnyc.Version())
 		},
 	})
+	cmd.AddCommand(&cobra.Command{
+		Use:   "database",
+		Short: "Manage the database",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			return cmd.Help()
+		},
+	})
+	cmd.AddCommand(&cobra.Command{
+		Use:   "game",
+		Short: "Run the game",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			return cmd.Help()
+		},
+	})
+	cmd.AddCommand(&cobra.Command{
+		Use:   "api",
+		Short: "Run the API server",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			return cmd.Help()
+		},
+	})
 
 	return cmd
 }
