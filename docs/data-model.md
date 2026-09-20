@@ -58,8 +58,8 @@ An entity is an individually addressable object in the game world.
 
 ### Stack
 
-A stack is an ordered group at a location. Its kind describes the group, such
-as a ship or settlement.
+A stack is an ordered group of entities and substacks at a location. Its kind
+describes the group, such as a ship or settlement.
 
 | Field | Meaning |
 | --- | --- |
@@ -70,16 +70,20 @@ as a ship or settlement.
 
 ### Element
 
-An element places an entity at a particular position in a stack.
+An element places either an entity or a substack at a particular position in a
+parent stack.
 
 | Field | Meaning |
 | --- | --- |
-| `stack-id` | ID of the containing stack. |
-| `sequence` | Entity position within the stack. |
-| `entity-id` | ID of the entity at that position. |
+| `stack-id` | ID of the parent stack. |
+| `sequence` | Position within the parent stack. |
+| `entity-id` | ID of the entity at that position, if the element contains an entity. |
+| `sub-stack-id` | ID of the stack at that position, if the element contains a substack. |
 
-Within a stack, `sequence` identifies an element's position and must be unique.
-An entity can occupy at most one stack position.
+Exactly one of `entity-id` and `sub-stack-id` must be present. Within a parent
+stack, `sequence` identifies an element's position and must be unique. An entity
+or substack can occupy at most one stack position. A stack cannot contain itself
+directly or indirectly.
 
 ## Relationships
 
@@ -87,7 +91,9 @@ An entity can occupy at most one stack position.
 Account 1 ─── 0..* Player 0..* ─── 1 Game
 Actor   1 ─── 0..* Entity
 Actor   1 ─── 0..* Stack
-Stack   1 ─── 0..* Element 1 ─── 1 Entity
+Stack   1 ─── 0..* Element 0..1 ─── 1 Entity
+                         │
+                         └── 0..1 ─── 1 Stack (substack)
 ```
 
 An active player is an [actor](glossary.md#actor). Engines may also act through
@@ -98,8 +104,8 @@ agents.
 The initial model does not yet define:
 
 - the record and key used to represent actors and engine agents; or
-- whether `Entity.stack-id` or `Element` is the authoritative source for stack
-  membership.
+- whether `Entity.stack-id` or an entity-valued `Element` is the authoritative
+  source for entity membership in a stack.
 
 These decisions must be resolved before implementing the corresponding foreign
 keys and consistency constraints.
