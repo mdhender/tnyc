@@ -2,15 +2,18 @@ package tnyc
 
 import "github.com/maloquacious/semver"
 
-var version = semver.Version{
-	Major:      0,
-	Minor:      1,
-	Patch:      5,
-	PreRelease: "alpha",
-    Build: semver.Commit(),
-}
+var (
+	version = semver.Version{
+		Major:      0,
+		Minor:      1,
+		Patch:      6,
+		PreRelease: "alpha",
 
-// Version returns the current version of tnyc.
+		// Automatically populate build metadata with commit info
+		Build: semver.Commit(), // Uses Git commit hash from build info
+	}
+)
+
 func Version() semver.Version {
 	return version
 }
