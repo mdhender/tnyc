@@ -8,7 +8,9 @@ import (
 	"io"
 	"os"
 
+	"github.com/mdhender/tnyc"
 	"github.com/mdhender/tnyc/internal/dotenv"
+	"github.com/spf13/cobra"
 )
 
 func main() {
@@ -32,6 +34,30 @@ func main() {
 	}
 }
 
-func run(_ context.Context, _ []string, _, _ io.Writer) error {
-	return nil
+func run(ctx context.Context, args []string, stdout, stderr io.Writer) error {
+	cmd := newRootCommand()
+	cmd.SetArgs(args)
+	cmd.SetOut(stdout)
+	cmd.SetErr(stderr)
+	return cmd.ExecuteContext(ctx)
+}
+
+func newRootCommand() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:           "tnyc",
+		Short:         "An unfaithful remake of a lost classic",
+		SilenceErrors: true,
+		SilenceUsage:  true,
+	}
+
+	cmd.AddCommand(&cobra.Command{
+		Use:   "version",
+		Short: "Print version information",
+		Args:  cobra.NoArgs,
+		Run: func(cmd *cobra.Command, _ []string) {
+			fmt.Fprintln(cmd.OutOrStdout(), tnyc.Version())
+		},
+	})
+
+	return cmd
 }
