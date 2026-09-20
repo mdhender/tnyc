@@ -22,12 +22,12 @@ func main() {
 	// Load also rejects an unknown environment, which is what lets env be used
 	// as a path segment in the credential file without further checking.
 	if err := dotenv.Load(env); err != nil {
-		fmt.Fprintf(os.Stderr, "T’nyc: %v\n", err)
+		fmt.Fprintf(os.Stderr, "tnyc: %v\n", err)
 		os.Exit(1)
 	}
 
 	if err := run(context.Background(), os.Args[1:], os.Stdout, os.Stderr); err != nil {
-		fmt.Fprintf(os.Stderr, "T’nyc: %v\n", err)
+		fmt.Fprintf(os.Stderr, "tnyc: %v\n", err)
 		os.Exit(1)
 	}
 }
