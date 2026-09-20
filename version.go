@@ -6,7 +6,7 @@ var (
 	version = semver.Version{
 		Major:      0,
 		Minor:      1,
-		Patch:      8,
+		Patch:      9,
 		PreRelease: "alpha",
 
 		// Automatically populate build metadata with commit info

@@ -1,6 +1,13 @@
 # tnyc
 An unfaithful remake of a lost(?) classic.
 
+## Documentation
+
+- [Data model](docs/data-model.md)
+- [Engines](docs/engines.md)
+- [Glossary](docs/glossary.md)
+- [T'Nyc rules](docs/references/rules.md)
+
 ## Acknowledgements
 
 The [T'Nyc rules](docs/references/rules.md) are copied from the
