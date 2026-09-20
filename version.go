@@ -7,6 +7,7 @@ var version = semver.Version{
 	Minor:      1,
 	Patch:      5,
 	PreRelease: "alpha",
+    Build: semver.Commit(),
 }
 
 // Version returns the current version of tnyc.
