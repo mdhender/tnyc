@@ -9,6 +9,17 @@ An unfaithful remake of a lost(?) classic.
 - [Glossary](docs/references/glossary.md)
 - [T'Nyc rules](docs/references/rules.md)
 
+## Importing a world
+
+Validate the WGVC schema-v1 export and save the T'Nyc map as JSON:
+
+```sh
+go run ./cmd/tnyc world
+```
+
+The command reads `var/wgvc-export.json` and writes `var/tnyc-world.json` by
+default. Use `--input` and `--output` to select other paths.
+
 ## Acknowledgements
 
 The [T'Nyc rules](docs/references/rules.md) are copied from the

@@ -58,6 +58,7 @@ func newRootCommand() *cobra.Command {
 			fmt.Fprintln(cmd.OutOrStdout(), tnyc.Version())
 		},
 	})
+	cmd.AddCommand(newWorldCommand())
 	cmd.AddCommand(&cobra.Command{
 		Use:   "database",
 		Short: "Manage the database",
@@ -83,5 +84,32 @@ func newRootCommand() *cobra.Command {
 		},
 	})
 
+	return cmd
+}
+
+func newWorldCommand() *cobra.Command {
+	const (
+		defaultInputPath  = "var/wgvc-export.json"
+		defaultOutputPath = "var/tnyc-world.json"
+	)
+	var inputPath, outputPath string
+	cmd := &cobra.Command{
+		Use:   "world",
+		Short: "Import and validate a WGVC world",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			world, err := tnyc.LoadWorld(inputPath)
+			if err != nil {
+				return err
+			}
+			if err := tnyc.SaveWorld(outputPath, world); err != nil {
+				return err
+			}
+			fmt.Fprintf(cmd.OutOrStdout(), "saved world to %s\n", outputPath)
+			return nil
+		},
+	}
+	cmd.Flags().StringVarP(&inputPath, "input", "i", defaultInputPath, "WGVC schema-v1 JSON input path")
+	cmd.Flags().StringVarP(&outputPath, "output", "o", defaultOutputPath, "T'Nyc world JSON output path")
 	return cmd
 }
