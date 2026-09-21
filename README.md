@@ -5,7 +5,8 @@ An unfaithful remake of a lost(?) classic.
 
 - [Data model](docs/data-model.md)
 - [Engines](docs/engines.md)
-- [Glossary](docs/glossary.md)
+- [Entity reference](docs/references/entity.md)
+- [Glossary](docs/references/glossary.md)
 - [T'Nyc rules](docs/references/rules.md)
 
 ## Acknowledgements

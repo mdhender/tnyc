@@ -53,4 +53,4 @@ Reports engine
   └──▶ administrator reports
 ```
 
-See the [glossary](glossary.md) for the definition of an actor.
+See the [glossary](references/glossary.md) for the definition of an actor.

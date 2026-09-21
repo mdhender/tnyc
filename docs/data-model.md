@@ -48,24 +48,29 @@ must be unique, so an account can have at most one player record in a game.
 
 ### Entity
 
-An entity is an individually addressable object in the game world.
+An entity is an individually addressable object in the game world. The
+[Entity reference](references/entity.md) defines its kinds, attributes, and
+gameplay constraints.
 
 | Field | Meaning |
 | --- | --- |
 | `id` | Entity ID. |
+| `game-id` | ID of the game containing the entity. |
+| `name` | Name unique within the game. |
+| `kind` | Entity kind. |
 | `controlled-by-id` | ID of the actor that controls the entity. |
 | `stack-id` | ID of the stack containing the entity. |
 
 ### Stack
 
-A stack is an ordered group of entities and substacks at a location. Its kind
-describes the group, such as a ship or settlement.
+A stack is an ordered group of entities and substacks at a location. A stack
+is not an entity; a ship, settlement, or other game-world object is represented
+as an entity even when it carries or contains a stack.
 
 | Field | Meaning |
 | --- | --- |
 | `id` | Stack ID. |
 | `location-id` | ID of the stack's location. |
-| `kind` | Stack kind, such as `ship` or `settlement`. |
 | `controlled-by-id` | ID of the actor that controls the stack. |
 
 ### Element
@@ -96,8 +101,8 @@ Stack   1 ─── 0..* Element 0..1 ─── 1 Entity
                          └── 0..1 ─── 1 Stack (substack)
 ```
 
-An active player is an [actor](glossary.md#actor). Engines may also act through
-agents.
+An active player is an [actor](references/glossary.md#actor). Engines may also
+act through agents.
 
 ## Open modeling decisions
 
