@@ -20,6 +20,18 @@ go run ./cmd/tnyc world
 The command reads `var/wgvc-export.json` and writes `var/tnyc-world.json` by
 default. Use `--input` and `--output` to select other paths.
 
+## Creating a database
+
+Create a datastore in an existing writable directory using an imported world:
+
+```sh
+go run ./cmd/tnyc database create
+```
+
+The command defaults to `--db-path var/` and
+`--world-map var/tnyc-world.JSON`. It creates `tnyc.json` in the database path
+and refuses to overwrite an existing database.
+
 ## Acknowledgements
 
 The [T'Nyc rules](docs/references/rules.md) are copied from the

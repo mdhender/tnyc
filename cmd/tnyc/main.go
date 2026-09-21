@@ -59,14 +59,7 @@ func newRootCommand() *cobra.Command {
 		},
 	})
 	cmd.AddCommand(newWorldCommand())
-	cmd.AddCommand(&cobra.Command{
-		Use:   "database",
-		Short: "Manage the database",
-		Args:  cobra.NoArgs,
-		RunE: func(cmd *cobra.Command, _ []string) error {
-			return cmd.Help()
-		},
-	})
+	cmd.AddCommand(newDatabaseCommand())
 	cmd.AddCommand(&cobra.Command{
 		Use:   "game",
 		Short: "Run the game",
@@ -84,6 +77,39 @@ func newRootCommand() *cobra.Command {
 		},
 	})
 
+	return cmd
+}
+
+func newDatabaseCommand() *cobra.Command {
+	const (
+		defaultDatabasePath = "var/"
+		defaultWorldMap     = "var/tnyc-world.JSON"
+	)
+	cmd := &cobra.Command{
+		Use:   "database",
+		Short: "Manage the database",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			return cmd.Help()
+		},
+	}
+
+	var dbPath, worldMap string
+	createCmd := &cobra.Command{
+		Use:   "create",
+		Short: "Create a database",
+		Args:  cobra.NoArgs,
+		RunE: func(cmd *cobra.Command, _ []string) error {
+			if err := tnyc.CreateDatastore(dbPath, worldMap); err != nil {
+				return err
+			}
+			fmt.Fprintf(cmd.OutOrStdout(), "created database at %s\n", dbPath)
+			return nil
+		},
+	}
+	createCmd.Flags().StringVar(&dbPath, "db-path", defaultDatabasePath, "existing directory for tnyc.json")
+	createCmd.Flags().StringVar(&worldMap, "world-map", defaultWorldMap, "T'Nyc world JSON path")
+	cmd.AddCommand(createCmd)
 	return cmd
 }
 

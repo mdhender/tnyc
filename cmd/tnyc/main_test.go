@@ -82,3 +82,45 @@ func TestWorldCommandWritesJSON(t *testing.T) {
 		t.Fatalf("LoadWorld(output) error = %v", err)
 	}
 }
+
+func TestDatabaseCreateCommand(t *testing.T) {
+	databasePath := t.TempDir()
+	worldMap := filepath.Join("..", "..", "testdata", "wgvc-schema-v1.json")
+	var stdout, stderr bytes.Buffer
+	if err := run(context.Background(), []string{
+		"database", "create",
+		"--db-path", databasePath,
+		"--world-map", worldMap,
+	}, &stdout, &stderr); err != nil {
+		t.Fatalf("run() error = %v", err)
+	}
+	if got := stderr.String(); got != "" {
+		t.Errorf("stderr = %q, want empty", got)
+	}
+	if !strings.Contains(stdout.String(), databasePath) {
+		t.Errorf("stdout = %q, want database path %q", stdout.String(), databasePath)
+	}
+	if _, err := os.Stat(filepath.Join(databasePath, "tnyc.json")); err != nil {
+		t.Fatalf("database file: %v", err)
+	}
+}
+
+func TestDatabaseCreateCommandDefaults(t *testing.T) {
+	database := newDatabaseCommand()
+	create, _, err := database.Find([]string{"create"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	for name, want := range map[string]string{
+		"db-path":   "var/",
+		"world-map": "var/tnyc-world.JSON",
+	} {
+		flag := create.Flags().Lookup(name)
+		if flag == nil {
+			t.Fatalf("flag %q is missing", name)
+		}
+		if got := flag.DefValue; got != want {
+			t.Errorf("flag %q default = %q, want %q", name, got, want)
+		}
+	}
+}
