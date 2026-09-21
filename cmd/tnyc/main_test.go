@@ -45,6 +45,9 @@ func TestRootCommands(t *testing.T) {
 
 func TestWorldCommandDefaults(t *testing.T) {
 	cmd := newWorldCommand()
+	if !strings.Contains(cmd.Short, "Convert") || !strings.Contains(cmd.Short, "WGVC") || !strings.Contains(cmd.Short, "T'Nyc") {
+		t.Errorf("Short = %q, want WGVC-to-T'Nyc conversion description", cmd.Short)
+	}
 	for name, want := range map[string]string{
 		"input":  "var/wgvc-export.json",
 		"output": "var/tnyc-world.json",
@@ -85,7 +88,7 @@ func TestWorldCommandWritesJSON(t *testing.T) {
 
 func TestDatabaseCreateCommand(t *testing.T) {
 	databasePath := t.TempDir()
-	worldMap := filepath.Join("..", "..", "testdata", "wgvc-schema-v1.json")
+	worldMap := filepath.Join("..", "..", "testdata", "tnyc-world-v1.json")
 	var stdout, stderr bytes.Buffer
 	if err := run(context.Background(), []string{
 		"database", "create",

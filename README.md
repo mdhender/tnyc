@@ -11,14 +11,16 @@ An unfaithful remake of a lost(?) classic.
 
 ## Importing a world
 
-Validate the WGVC schema-v1 export and save the T'Nyc map as JSON:
+Convert a WGVC schema-v1 export into a T'Nyc schema-v1 world:
 
 ```sh
 go run ./cmd/tnyc world
 ```
 
 The command reads `var/wgvc-export.json` and writes `var/tnyc-world.json` by
-default. Use `--input` and `--output` to select other paths.
+default. The output contains T'Nyc cells, islands, corners, and edges; WGVC
+generation settings and result metadata are not retained. Use `--input` and
+`--output` to select other paths.
 
 ## Creating a database
 

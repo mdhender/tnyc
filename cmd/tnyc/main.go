@@ -121,10 +121,10 @@ func newWorldCommand() *cobra.Command {
 	var inputPath, outputPath string
 	cmd := &cobra.Command{
 		Use:   "world",
-		Short: "Import and validate a WGVC world",
+		Short: "Convert a WGVC world to T'Nyc format",
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, _ []string) error {
-			world, err := tnyc.LoadWorld(inputPath)
+			world, err := tnyc.ImportWGVCFile(inputPath)
 			if err != nil {
 				return err
 			}
@@ -135,7 +135,7 @@ func newWorldCommand() *cobra.Command {
 			return nil
 		},
 	}
-	cmd.Flags().StringVarP(&inputPath, "input", "i", defaultInputPath, "WGVC schema-v1 JSON input path")
+	cmd.Flags().StringVarP(&inputPath, "input", "i", defaultInputPath, "WGVC schema-v1 JSON input to convert")
 	cmd.Flags().StringVarP(&outputPath, "output", "o", defaultOutputPath, "T'Nyc world JSON output path")
 	return cmd
 }
