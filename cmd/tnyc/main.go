@@ -83,7 +83,7 @@ func newRootCommand() *cobra.Command {
 func newDatabaseCommand() *cobra.Command {
 	const (
 		defaultDatabasePath = "var/"
-		defaultWorldMap     = "var/tnyc-world.JSON"
+		defaultWorldMap     = "var/tnyc-world.json"
 	)
 	cmd := &cobra.Command{
 		Use:   "database",

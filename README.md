@@ -29,7 +29,7 @@ go run ./cmd/tnyc database create
 ```
 
 The command defaults to `--db-path var/` and
-`--world-map var/tnyc-world.JSON`. It creates `tnyc.json` in the database path
+`--world-map var/tnyc-world.json`. It creates `tnyc.json` in the database path
 and refuses to overwrite an existing database.
 
 ## Acknowledgements

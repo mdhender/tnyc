@@ -113,7 +113,7 @@ func TestDatabaseCreateCommandDefaults(t *testing.T) {
 	}
 	for name, want := range map[string]string{
 		"db-path":   "var/",
-		"world-map": "var/tnyc-world.JSON",
+		"world-map": "var/tnyc-world.json",
 	} {
 		flag := create.Flags().Lookup(name)
 		if flag == nil {
