@@ -7,7 +7,7 @@ type CellID int
 type CornerID int
 type EdgeID int
 
-const NoIslandID IslandID = -1
+const NoIslandID IslandID = 0
 
 type Terrain string
 

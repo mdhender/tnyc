@@ -10,7 +10,7 @@ import (
 
 func TestCreateDatastore(t *testing.T) {
 	dir := t.TempDir()
-	worldMap := "testdata/tnyc-world-v1.json"
+	worldMap := "testdata/tnyc-world-v2.json"
 
 	if err := CreateDatastore(dir, worldMap); err != nil {
 		t.Fatalf("CreateDatastore() error = %v", err)
@@ -32,7 +32,7 @@ func TestCreateDatastore(t *testing.T) {
 }
 
 func TestCreateDatastoreRejectsInvalidInputs(t *testing.T) {
-	worldMap := "testdata/tnyc-world-v1.json"
+	worldMap := "testdata/tnyc-world-v2.json"
 	tests := []struct {
 		name      string
 		prepare   func(*testing.T) (string, string)
@@ -111,7 +111,7 @@ func TestCreateDatastoreDoesNotOverwriteExistingDatabase(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err := CreateDatastore(dir, "testdata/tnyc-world-v1.json")
+	err := CreateDatastore(dir, "testdata/tnyc-world-v2.json")
 	if err == nil || !strings.Contains(err.Error(), "already exists") {
 		t.Fatalf("CreateDatastore() error = %v, want already exists error", err)
 	}

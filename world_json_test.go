@@ -18,7 +18,10 @@ func TestImportWGVCConvertsMapData(t *testing.T) {
 	if got, want := len(world.Islands), 1; got != want {
 		t.Errorf("len(Islands) = %d, want %d", got, want)
 	}
-	if got, want := world.Islands[0].CellIDs, []CellID{0}; !reflect.DeepEqual(got, want) {
+	if got, want := world.Islands[0].ID, IslandID(1); got != want {
+		t.Errorf("island ID = %d, want %d", got, want)
+	}
+	if got, want := world.Islands[0].CellIDs, []CellID{1}; !reflect.DeepEqual(got, want) {
 		t.Errorf("island cells = %v, want %v", got, want)
 	}
 	if got, want := len(world.Cells), 2; got != want {
@@ -27,17 +30,32 @@ func TestImportWGVCConvertsMapData(t *testing.T) {
 	if got, want := world.Cells[0].Terrain, Terrain("plains"); got != want {
 		t.Errorf("land terrain = %q, want %q", got, want)
 	}
-	if got, want := world.Cells[0].CornerIDs, []CornerID{0, 1, 2}; !reflect.DeepEqual(got, want) {
+	if got, want := world.Cells[0].ID, CellID(1); got != want {
+		t.Errorf("land cell ID = %d, want %d", got, want)
+	}
+	if got, want := world.Cells[0].IslandID, IslandID(1); got != want {
+		t.Errorf("land cell island ID = %d, want %d", got, want)
+	}
+	if got, want := world.Cells[0].CornerIDs, []CornerID{1, 2, 3}; !reflect.DeepEqual(got, want) {
 		t.Errorf("ordered corners = %v, want %v", got, want)
 	}
 	if got := world.Cells[1].IslandID; got != NoIslandID {
 		t.Errorf("water cell island ID = %d, want %d", got, NoIslandID)
 	}
-	if got, want := world.Edges[0].CellIDs, []CellID{0}; !reflect.DeepEqual(got, want) {
+	if got, want := world.Edges[0].ID, EdgeID(1); got != want {
+		t.Errorf("boundary edge ID = %d, want %d", got, want)
+	}
+	if got, want := world.Edges[0].CornerIDs, ([2]CornerID{1, 2}); got != want {
+		t.Errorf("boundary edge corners = %v, want %v", got, want)
+	}
+	if got, want := world.Edges[0].CellIDs, []CellID{1}; !reflect.DeepEqual(got, want) {
 		t.Errorf("boundary edge cells = %v, want %v", got, want)
 	}
-	if got, want := world.Edges[1].CellIDs, []CellID{0, 1}; !reflect.DeepEqual(got, want) {
+	if got, want := world.Edges[1].CellIDs, []CellID{1, 2}; !reflect.DeepEqual(got, want) {
 		t.Errorf("interior edge cells = %v, want %v", got, want)
+	}
+	if got, want := world.Corners[3].ID, CornerID(4); got != want {
+		t.Errorf("corner ID = %d, want %d", got, want)
 	}
 	if got, want := world.Corners[3].Point, (Point{X: 2, Y: 1}); got != want {
 		t.Errorf("corner point = %#v, want %#v", got, want)
@@ -124,6 +142,12 @@ func TestDecodeWorldRejectsMalformedReferences(t *testing.T) {
 		change func(map[string]any)
 		want   string
 	}{
+		{"zero island id", func(doc map[string]any) {
+			doc["islands"].([]any)[0].(map[string]any)["id"] = float64(0)
+		}, "non-canonical id 0"},
+		{"zero island cell reference", func(doc map[string]any) {
+			doc["islands"].([]any)[0].(map[string]any)["cell_ids"] = []any{float64(0)}
+		}, "out-of-range cell id 0"},
 		{"island cell", func(doc map[string]any) {
 			doc["islands"].([]any)[0].(map[string]any)["cell_ids"] = []any{float64(9)}
 		}, "out-of-range cell"},
@@ -133,15 +157,33 @@ func TestDecodeWorldRejectsMalformedReferences(t *testing.T) {
 		{"cell corner", func(doc map[string]any) {
 			doc["cells"].([]any)[0].(map[string]any)["corner_ids"] = []any{float64(9)}
 		}, "out-of-range corner"},
+		{"zero cell id", func(doc map[string]any) {
+			doc["cells"].([]any)[0].(map[string]any)["id"] = float64(0)
+		}, "non-canonical id 0"},
+		{"zero cell corner reference", func(doc map[string]any) {
+			doc["cells"].([]any)[0].(map[string]any)["corner_ids"] = []any{float64(0)}
+		}, "out-of-range corner id 0"},
+		{"zero corner id", func(doc map[string]any) {
+			doc["corners"].([]any)[0].(map[string]any)["id"] = float64(0)
+		}, "non-canonical id 0"},
 		{"edge endpoint count", func(doc map[string]any) {
 			doc["edges"].([]any)[0].(map[string]any)["corner_ids"] = []any{float64(0)}
 		}, "want 2"},
+		{"zero edge id", func(doc map[string]any) {
+			doc["edges"].([]any)[0].(map[string]any)["id"] = float64(0)
+		}, "non-canonical id 0"},
+		{"zero edge corner reference", func(doc map[string]any) {
+			doc["edges"].([]any)[0].(map[string]any)["corner_ids"] = []any{float64(0), float64(2)}
+		}, "out-of-range corner id 0"},
+		{"zero edge cell reference", func(doc map[string]any) {
+			doc["edges"].([]any)[0].(map[string]any)["cell_ids"] = []any{float64(0)}
+		}, "out-of-range cell id 0"},
 		{"edge cell", func(doc map[string]any) {
 			doc["edges"].([]any)[0].(map[string]any)["cell_ids"] = []any{float64(9)}
 		}, "out-of-range cell"},
 	}
 
-	valid := readTestFile(t, "testdata/tnyc-world-v1.json")
+	valid := readTestFile(t, "testdata/tnyc-world-v2.json")
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			var document map[string]any
@@ -189,7 +231,7 @@ func TestLoadAndSaveWorldIncludePathInErrors(t *testing.T) {
 	if _, err := LoadWorld(missing); err == nil || !strings.Contains(err.Error(), missing) {
 		t.Errorf("LoadWorld() error = %v, want path %q", err, missing)
 	}
-	world, err := LoadWorld("testdata/tnyc-world-v1.json")
+	world, err := LoadWorld("testdata/tnyc-world-v2.json")
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -11,7 +11,7 @@ An unfaithful remake of a lost(?) classic.
 
 ## Importing a world
 
-Convert a WGVC schema-v1 export into a T'Nyc schema-v1 world:
+Convert a WGVC schema-v1 export into a T'Nyc schema-v2 world:
 
 ```sh
 go run ./cmd/tnyc world
@@ -20,7 +20,8 @@ go run ./cmd/tnyc world
 The command reads `var/wgvc-export.json` and writes `var/tnyc-world.json` by
 default. The output contains T'Nyc cells, islands, corners, and edges; WGVC
 generation settings and result metadata are not retained. Use `--input` and
-`--output` to select other paths.
+`--output` to select other paths. T'Nyc IDs start at 1; an `island_id` of 0
+means that a water cell belongs to no island.
 
 ## Creating a database
 

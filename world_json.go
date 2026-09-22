@@ -10,7 +10,7 @@ import (
 	"os"
 )
 
-const worldSchemaVersion = 1
+const worldSchemaVersion = 2
 
 // DecodeWorld decodes and validates a T'Nyc world document.
 func DecodeWorld(r io.Reader) (*World, error) {
@@ -45,7 +45,7 @@ func LoadWorld(path string) (*World, error) {
 	return world, nil
 }
 
-// EncodeWorld validates world and writes it as T'Nyc schema-v1 JSON.
+// EncodeWorld validates world and writes it as T'Nyc schema-v2 JSON.
 func EncodeWorld(w io.Writer, world *World) error {
 	if world == nil {
 		return errors.New("encode world: nil world")
@@ -142,49 +142,49 @@ func (document worldDocument) validate() error {
 		cellIslands[index] = NoIslandID
 	}
 	for index, island := range document.Islands {
-		if island.ID != IslandID(index) {
+		if island.ID != IslandID(index+1) {
 			return fmt.Errorf("island index %d has non-canonical id %d", index, island.ID)
 		}
 		for _, cellID := range island.CellIDs {
-			if !validIndex(int(cellID), len(document.Cells)) {
+			if !validID(int(cellID), len(document.Cells)) {
 				return fmt.Errorf("island %d has out-of-range cell id %d", island.ID, cellID)
 			}
-			if cellIslands[cellID] != NoIslandID {
+			if cellIslands[cellID-1] != NoIslandID {
 				return fmt.Errorf("cell %d belongs to multiple islands", cellID)
 			}
-			cellIslands[cellID] = island.ID
+			cellIslands[cellID-1] = island.ID
 		}
 	}
 	for index, cell := range document.Cells {
-		if cell.ID != CellID(index) {
+		if cell.ID != CellID(index+1) {
 			return fmt.Errorf("cell index %d has non-canonical id %d", index, cell.ID)
 		}
-		if cell.IslandID != NoIslandID && !validIndex(int(cell.IslandID), len(document.Islands)) {
+		if cell.IslandID != NoIslandID && !validID(int(cell.IslandID), len(document.Islands)) {
 			return fmt.Errorf("cell %d has out-of-range island id %d", cell.ID, cell.IslandID)
 		}
 		if cell.IslandID != cellIslands[index] {
 			return fmt.Errorf("cell %d island id %d disagrees with island membership %d", cell.ID, cell.IslandID, cellIslands[index])
 		}
 		for _, cornerID := range cell.CornerIDs {
-			if !validIndex(int(cornerID), len(document.Corners)) {
+			if !validID(int(cornerID), len(document.Corners)) {
 				return fmt.Errorf("cell %d has out-of-range corner id %d", cell.ID, cornerID)
 			}
 		}
 	}
 	for index, corner := range document.Corners {
-		if corner.ID != CornerID(index) {
+		if corner.ID != CornerID(index+1) {
 			return fmt.Errorf("corner index %d has non-canonical id %d", index, corner.ID)
 		}
 	}
 	for index, edge := range document.Edges {
-		if edge.ID != EdgeID(index) {
+		if edge.ID != EdgeID(index+1) {
 			return fmt.Errorf("edge index %d has non-canonical id %d", index, edge.ID)
 		}
 		if len(edge.CornerIDs) != 2 {
 			return fmt.Errorf("edge %d has %d corner ids, want 2", edge.ID, len(edge.CornerIDs))
 		}
 		for _, cornerID := range edge.CornerIDs {
-			if !validIndex(int(cornerID), len(document.Corners)) {
+			if !validID(int(cornerID), len(document.Corners)) {
 				return fmt.Errorf("edge %d has out-of-range corner id %d", edge.ID, cornerID)
 			}
 		}
@@ -192,7 +192,7 @@ func (document worldDocument) validate() error {
 			return fmt.Errorf("edge %d has %d cell ids, want 1 or 2", edge.ID, len(edge.CellIDs))
 		}
 		for _, cellID := range edge.CellIDs {
-			if !validIndex(int(cellID), len(document.Cells)) {
+			if !validID(int(cellID), len(document.Cells)) {
 				return fmt.Errorf("edge %d has out-of-range cell id %d", edge.ID, cellID)
 			}
 		}
@@ -200,7 +200,7 @@ func (document worldDocument) validate() error {
 	return nil
 }
 
-func validIndex(id, length int) bool { return id >= 0 && id < length }
+func validID(id, count int) bool { return id > 0 && id <= count }
 
 func (document worldDocument) world() *World {
 	world := &World{

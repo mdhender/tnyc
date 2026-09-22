@@ -88,7 +88,7 @@ func TestWorldCommandWritesJSON(t *testing.T) {
 
 func TestDatabaseCreateCommand(t *testing.T) {
 	databasePath := t.TempDir()
-	worldMap := filepath.Join("..", "..", "testdata", "tnyc-world-v1.json")
+	worldMap := filepath.Join("..", "..", "testdata", "tnyc-world-v2.json")
 	var stdout, stderr bytes.Buffer
 	if err := run(context.Background(), []string{
 		"database", "create",

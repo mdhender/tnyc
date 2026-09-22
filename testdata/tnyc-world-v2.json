@@ -1,47 +1,40 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "islands": [
     {
-      "id": 0,
+      "id": 1,
       "cell_ids": [
-        0
+        1
       ]
     }
   ],
   "cells": [
     {
-      "id": 0,
-      "island_id": 0,
+      "id": 1,
+      "island_id": 1,
       "corner_ids": [
-        0,
         1,
-        2
+        2,
+        3
       ],
       "terrain": "plains"
     },
     {
-      "id": 1,
-      "island_id": -1,
+      "id": 2,
+      "island_id": 0,
       "corner_ids": [
-        1,
-        3,
-        2
+        2,
+        4,
+        3
       ],
       "terrain": "ocean"
     }
   ],
   "corners": [
     {
-      "id": 0,
-      "point": {
-        "x": 0,
-        "y": 0
-      }
-    },
-    {
       "id": 1,
       "point": {
-        "x": 1,
+        "x": 0,
         "y": 0
       }
     },
@@ -49,11 +42,18 @@
       "id": 2,
       "point": {
         "x": 1,
-        "y": 1
+        "y": 0
       }
     },
     {
       "id": 3,
+      "point": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "id": 4,
       "point": {
         "x": 2,
         "y": 1
@@ -62,23 +62,12 @@
   ],
   "edges": [
     {
-      "id": 0,
-      "corner_ids": [
-        0,
-        1
-      ],
-      "cell_ids": [
-        0
-      ]
-    },
-    {
       "id": 1,
       "corner_ids": [
         1,
         2
       ],
       "cell_ids": [
-        0,
         1
       ]
     },
@@ -89,7 +78,18 @@
         3
       ],
       "cell_ids": [
-        1
+        1,
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "corner_ids": [
+        3,
+        4
+      ],
+      "cell_ids": [
+        2
       ]
     }
   ]

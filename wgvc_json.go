@@ -71,26 +71,26 @@ type wgvcBoundsRecord struct {
 }
 
 type wgvcIslandRecord struct {
-	ID          IslandID `json:"id"`
-	ProvinceIDs []CellID `json:"province_ids"`
+	ID          int   `json:"id"`
+	ProvinceIDs []int `json:"province_ids"`
 }
 
 type wgvcProvinceRecord struct {
-	ID        CellID     `json:"id"`
-	IslandID  IslandID   `json:"island_id"`
-	CornerIDs []CornerID `json:"corner_ids"`
-	Terrain   Terrain    `json:"terrain"`
+	ID        int     `json:"id"`
+	IslandID  int     `json:"island_id"`
+	CornerIDs []int   `json:"corner_ids"`
+	Terrain   Terrain `json:"terrain"`
 }
 
 type wgvcCornerRecord struct {
-	ID    CornerID    `json:"id"`
+	ID    int         `json:"id"`
 	Point pointRecord `json:"point"`
 }
 
 type wgvcEdgeRecord struct {
-	ID          EdgeID     `json:"id"`
-	CornerIDs   []CornerID `json:"corner_ids"`
-	ProvinceIDs []CellID   `json:"province_ids"`
+	ID          int   `json:"id"`
+	CornerIDs   []int `json:"corner_ids"`
+	ProvinceIDs []int `json:"province_ids"`
 }
 
 func (document wgvcDocument) validate() error {
@@ -118,18 +118,43 @@ func (document wgvcDocument) worldDocument() worldDocument {
 		Corners: make([]cornerRecord, len(document.Corners)), Edges: make([]edgeRecord, len(document.Edges)),
 	}
 	for index, island := range document.Islands {
-		converted.Islands[index] = islandRecord{ID: island.ID, CellIDs: island.ProvinceIDs}
+		converted.Islands[index] = islandRecord{ID: IslandID(island.ID + 1), CellIDs: importCellIDs(island.ProvinceIDs)}
 	}
 	for index, province := range document.Provinces {
-		converted.Cells[index] = cellRecord{ID: province.ID, IslandID: province.IslandID, CornerIDs: province.CornerIDs, Terrain: province.Terrain}
+		islandID := IslandID(province.IslandID + 1)
+		if province.IslandID == -1 {
+			islandID = NoIslandID
+		}
+		converted.Cells[index] = cellRecord{
+			ID: CellID(province.ID + 1), IslandID: islandID,
+			CornerIDs: importCornerIDs(province.CornerIDs), Terrain: province.Terrain,
+		}
 	}
 	for index, corner := range document.Corners {
-		converted.Corners[index] = cornerRecord{ID: corner.ID, Point: corner.Point}
+		converted.Corners[index] = cornerRecord{ID: CornerID(corner.ID + 1), Point: corner.Point}
 	}
 	for index, edge := range document.Edges {
-		converted.Edges[index] = edgeRecord{ID: edge.ID, CornerIDs: edge.CornerIDs, CellIDs: edge.ProvinceIDs}
+		converted.Edges[index] = edgeRecord{
+			ID: EdgeID(edge.ID + 1), CornerIDs: importCornerIDs(edge.CornerIDs), CellIDs: importCellIDs(edge.ProvinceIDs),
+		}
 	}
 	return converted
 }
 
 func (document wgvcDocument) world() *World { return document.worldDocument().world() }
+
+func importCellIDs(ids []int) []CellID {
+	converted := make([]CellID, len(ids))
+	for index, id := range ids {
+		converted[index] = CellID(id + 1)
+	}
+	return converted
+}
+
+func importCornerIDs(ids []int) []CornerID {
+	converted := make([]CornerID, len(ids))
+	for index, id := range ids {
+		converted[index] = CornerID(id + 1)
+	}
+	return converted
+}
