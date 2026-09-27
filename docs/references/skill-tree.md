@@ -30,8 +30,9 @@ Skills
 │       └── Cavalry [3]
 ├── Command
 │   └── Military Leadership [14]
-│       └── Military Tactics [15]
-│           └── Siegecraft [26]
+│       ├── Military Tactics [15]
+│       │   └── Siegecraft [26]
+│       └── Naval Tactics [16]
 ├── Governance
 │   └── Administration [1]
 │       ├── Stewardship [20]
@@ -63,7 +64,6 @@ Skills
 │   ├── Swimming [65]
 │   ├── Fishing [25]
 │   └── Sailing [17]
-│       ├── Naval Tactics [16]
 │       └── Shipbuilding [18]
 └── Arcane
     ├── Magic Resistance [32]
@@ -100,6 +100,7 @@ mindmap
       Military Leadership 14
         Military Tactics 15
           Siegecraft 26
+        Naval Tactics 16
     Governance
       Administration 1
         Stewardship 20
@@ -131,7 +132,6 @@ mindmap
       Swimming 65
       Fishing 25
       Sailing 17
-        Naval Tactics 16
         Shipbuilding 18
     Arcane
       Magic Resistance 32
@@ -161,7 +161,7 @@ ones:
 |---|---|---|
 | Cavalry | Horse Riding | Rules 3.32.2: Cavalry bestows Horse Riding, so riding is the foundation and mounted combat is built on it. |
 | Siegecraft | Military Tactics | Taking a walled place is a tactical problem first; the engineering serves the tactics. |
-| Naval Tactics | Sailing | Fighting at sea is built on mastery of ships; a commander who cannot sail cannot fight a fleet. |
+| Naval Tactics | Military Leadership | It is command of troops at sea (rules 3.32.6), a sibling of Military Tactics rather than a use of Sailing. |
 | Logistics | Administration | Its GURPS roots are mostly Administration, Packing, and Freight Handling. It is administration applied to armies. |
 | Trading | Administration | Commerce and bookkeeping share a root. Trading could equally stand alone under Governance. |
 | Gaming | Entertainment | Both are diversions that earn money in company. |
@@ -181,7 +181,7 @@ would matter to any mechanic built on the tree:
 
 | Skill | Also related to | Why |
 |---|---|---|
-| Naval Tactics | Military Leadership, Military Tactics | It is command of troops in combat (rules 3.32.6). |
+| Naval Tactics | Sailing | Commanding at sea needs a feel for ships. |
 | Siegecraft | Mining | Undermining walls. |
 | Logistics | Military Leadership | Supply serves the army's commander. |
 | Herbalist | Medicine | Herbs are medicine's raw material. |
