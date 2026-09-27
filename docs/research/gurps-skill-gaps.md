@@ -22,9 +22,11 @@ the book before this review is closed.
 
 ## How skill numbers are allocated
 
-The rules group skill numbers by kind, and within a group a higher number costs
-more to learn and to maintain (rules 3.4). A candidate's number therefore
-implies both its group and its relative cost.
+The original rules group skill numbers by kind, and within a group a higher
+number costs more to learn and to maintain (rules 3.4). Keeping new skills in
+the matching range is nice to have, not a design rule: the original designers
+worked in the era of skill trees, and T'Nyc leans on GURPS, which does not map
+naturally to one.
 
 | Range | Group (inferred from current skills) | Free numbers |
 |---|---|---|
@@ -55,6 +57,7 @@ a suggested range. "Strong" means an existing rule or order already needs it;
 |---|---|---|---|
 | Siegecraft | Engineer (Combat); Artillery (Catapult); Explosives (Demolition) | Attacking and defending cities, castles, towers, and fortresses. Nothing in the current list covers taking a walled place. | Strong |
 | Construction | Architecture; Masonry; Carpentry; Engineer (Civil) | Building or improving castles, roads, bridges, and ports. Shipbuilding covers ships only. Needs a build order, which the rules do not have yet. | Possible |
+| Logistics | Administration; Packing; Freight Handling; Soldier | Keeping armies supplied with food, pack animals, and freight. The game will model army supply. | Strong |
 | Teaching | Teaching | Speeds STUDY for units under a teacher. Gives skilled leaders a reason to exist beyond using the skill themselves. | Possible |
 | Intimidation | Intimidation; Interrogation | Improves TERRORIZE and the handling of captives (escape, EXECUTE, extracting information). | Possible |
 | Law | Law; Administration (judicial) | Courts, justice, and loyalty in governed provinces. Could equally be folded into Administration. | Weak |
@@ -74,7 +77,8 @@ a suggested range. "Strong" means an existing rule or order already needs it;
 
 These skills exist to let a province produce trade goods (rules 3.36), so this
 range should follow the trade-good list rather than the GURPS list. The trade
-goods have not been designed yet. GURPS suggests these crafts as a starting
+goods have not been designed yet; see
+[issue #6](https://github.com/mdhender/tnyc/issues/6). GURPS suggests these crafts as a starting
 checklist:
 
 | Candidate | GURPS source |
@@ -141,22 +145,22 @@ keeps them from being proposed again.
 | Acrobatics; Jumping; Running; Climbing (personal) | Personal athletics with no strategic effect. Climbing is folded into Mountaineering. |
 | Psionics; high-tech skills | Out of setting. |
 
+## Decisions
+
+1. Grouping skill numbers by kind is nice to have, not a design rule.
+2. Siegecraft and Construction stay separate skills.
+3. The game needs army supply, so Logistics is a candidate.
+4. The trade-good list is tracked in
+   [issue #6](https://github.com/mdhender/tnyc/issues/6).
+
 ## Open questions
 
-1. Is the grouping of skill numbers by kind a real design rule, or an
-   accident of the original list? The cost rule in 3.4 suggests it is real.
-2. Should Siegecraft and Construction be one skill? They share most of their
-   GURPS roots.
-3. Does the game need army supply (food, pack animals, freight)? If so, a
-   Logistics skill built from Administration, Packing, and Freight Handling
-   becomes a candidate for 26–31.
-4. Where does Poisons belong? Assassination is mentioned in rules 4.1.4.1 but
-   has no rules of its own.
-5. The trade-good list has to exist before the provincial production range
-   can be filled.
+1. Where does Poisons belong? Rules 4.1.4.1 mentions assassins, but there are
+   no assassination or poison rules, so it could fold into Stealth, fold into
+   Medicine, become its own skill, or be dropped.
 
 ## Next steps
 
 - Check the GURPS names and categories above against the Basic Set.
-- Decide on the Strong candidates and the open questions.
+- Decide on the Strong candidates and the open question.
 - Record accepted skills, with numbers, in the rules documentation.
