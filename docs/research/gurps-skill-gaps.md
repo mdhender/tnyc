@@ -17,8 +17,10 @@ effect. Most GURPS skills fold into an existing T'Nyc skill or have no use in a
 strategic PBM.
 
 The GURPS skill names below come from the Basic Set skill list, filtered to
-low-tech (TL0–4) and fantasy-relevant skills. They should be checked against
-the book before this review is closed.
+low-tech (TL0–4) and fantasy-relevant skills, and were checked against the
+[GURPS 4e skill inventory](gurps-4-skill-inventory.md). Professional Skill is
+not in the inventory, so the Professional Skill entries are unverified. Spell
+colleges are not skills and are named as in GURPS Magic.
 
 ## How skill numbers are allocated
 
@@ -83,7 +85,7 @@ checklist:
 
 | Candidate | GURPS source |
 |---|---|
-| Smithing | Smith; Metallurgy; Armoury |
+| Smithing | Smith (Iron, Copper, Lead and Tin); Metallurgy; Armoury (Body Armor, Melee Weapons, Missile Weapons) |
 | Weaving | Sewing; Professional Skill (Weaver, Dyer) |
 | Leatherworking | Leatherworking |
 | Jewelry | Jeweler |
@@ -115,30 +117,30 @@ keeps them from being proposed again.
 | Market Analysis; Merchant; Appraisal-type uses of Connoisseur | Trading |
 | Diplomacy; Politics; Streetwise; Fast-Talk; Detect Lies; Intelligence Analysis | Intrigue |
 | Savoir-Faire; Heraldry; Carousing | Courtliness |
-| Public Speaking; Propaganda; Leadership (civil) | Oratory |
+| Public Speaking; Propaganda | Oratory |
 | Shadowing; Observation; Search; Lockpicking; Filch; Escape; Disguise; Holdout; Poisons | Stealth |
 | Tracking; Naturalist; Survival (Woodlands); Traps; Weather Sense | Tracking, Forestry |
-| Navigation (Sea); Seamanship; Shiphandling; Meteorology (at sea) | Sailing |
-| Strategy (Naval) | Naval Tactics |
-| Leadership (military); Soldier | Military Leadership |
+| Navigation (Sea); Seamanship; Boating (Sailboat); Meteorology (Earthlike) | Sailing |
+| Strategy (Naval); Shiphandling (Ship) | Naval Tactics |
+| Leadership; Soldier | Military Leadership |
 | Tactics; Strategy (Land) | Military Tactics |
 | Brawling; Shield; Throwing; all melee weapon skills | Melee |
 | Bow; Crossbow; Sling; Thrown Weapon | Archery |
 | Riding; Lance | Cavalry |
-| First Aid; Physician; Surgery; Diagnosis; Pharmacy | Medicine |
+| First Aid; Physician; Surgery; Diagnosis; Pharmacy (Herbal) | Medicine |
 | Herb Lore; Gardening | Herbalist |
 | Writing; Research; Literature | Scribe, Lore |
 | History; Occultism; Hidden Lore; Area Knowledge; Cartography | Lore |
 | Games; Gambling | Gaming |
 | Performance; Singing; Musical Instrument; Dancing | Entertainment |
-| Animal Handling (livestock) | Herding |
+| Animal Handling (livestock specialties) | Herding |
 | Prospecting; Engineer (Mining) | Mining |
 
 ## Rejected
 
 | GURPS area | Reason |
 |---|---|
-| Language; Linguistics | No language mechanics, and adding them would mostly create friction for players. |
+| Languages (a trait in 4e, not a skill); Linguistics | No language mechanics, and adding them would mostly create friction for players. |
 | Theology; Religious Ritual | The setting has no religion mechanics. Revisit if temples or priests are added; Exorcism is covered by Dispelling. |
 | Cooking; Housekeeping; Sewing (personal) | Too small-scale for a strategic PBM. Cooking may return as part of army supply. |
 | Acrobatics; Jumping; Running; Climbing (personal) | Personal athletics with no strategic effect. Climbing is folded into Mountaineering. |
@@ -154,7 +156,3 @@ keeps them from being proposed again.
 5. Poisons fold into Stealth.
 6. All Strong candidates are accepted. They are numbered and described in the
    [skill reference](../references/skills.md).
-
-## Next steps
-
-- Check the GURPS names and categories above against the Basic Set.

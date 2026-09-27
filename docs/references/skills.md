@@ -8,9 +8,10 @@ closest GURPS Fourth Edition skills for each.
 The GURPS column is a functional mapping, not a claim of mechanical
 equivalence. T'Nyc skills are deliberately broader than GURPS skills.
 
-> **Unverified GURPS names.** The GURPS skill and college names below have not
-> yet been checked against the Basic Set. Treat them as provisional until that
-> check is done.
+GURPS skill names were checked against the
+[GURPS 4e skill inventory](../research/gurps-4-skill-inventory.md). Spell
+colleges and advantages are not skills, so the magic rows could not be checked
+that way.
 
 ## Ratings and costs
 
@@ -48,15 +49,15 @@ match.
 | 7 | Gaming | 3.31.4 | Games; Gambling | Exact |
 | 8 | Herding | 3.33.3 | Animal Handling | Close |
 | 9 | Intrigue | 3.31.8 | Politics; Diplomacy; Fast-Talk; Detect Lies; Streetwise; Intelligence Analysis | Broad |
-| 10 | Lore | 3.31.5 | Hidden Lore; History; Occultism; Area Knowledge; Research; Cartography; Expert Skills | Broad |
+| 10 | Lore | 3.31.5 | Hidden Lore; History; Occultism; Area Knowledge; Research; Cartography; Expert Skill | Broad |
 | 11 | Oratory | 3.31.6 | Public Speaking; Propaganda | Very close |
-| 12 | Medicine | 3.31.7 | Physician; First Aid; Diagnosis; Surgery; Pharmacy | Broad |
+| 12 | Medicine | 3.31.7 | Physician; First Aid; Diagnosis; Surgery; Pharmacy (Herbal) | Broad |
 | 13 | Melee | 3.32.3 | Broadsword; Axe/Mace; Spear; other melee weapon skills; Brawling; Shield | Very broad |
 | 14 | Military Leadership | 3.32.4 | Leadership; Soldier | Very close |
 | 15 | Military Tactics | 3.32.5 | Tactics; Strategy (Land) | Broad |
-| 16 | Naval Tactics | 3.32.6 | Strategy (Naval); Shiphandling | Close |
-| 17 | Sailing | 3.31.10 | Crewman (Seamanship); Boating (Sailboat); Navigation (Sea); Meteorology | Close |
-| 18 | Shipbuilding | 3.2 | Engineer (Ships) | Close |
+| 16 | Naval Tactics | 3.32.6 | Strategy (Naval); Shiphandling (Ship) | Close |
+| 17 | Sailing | 3.31.10 | Seamanship; Boating (Sailboat); Navigation (Sea); Meteorology (Earthlike) | Close |
+| 18 | Shipbuilding | 3.2 | Engineer (Vehicle Type: ships) | Close |
 | 19 | Stealth | 3.31.9 | Stealth; Shadowing; Observation; Search; Lockpicking; Filch; Escape; Disguise; Holdout; Poisons | Broad |
 | 20 | Stewardship | 3.33.5 | Administration; Merchant; Housekeeping | Broad |
 | 21 | Tracking | 3.33.6 | Tracking; Traps; Weather Sense | Exact |
@@ -89,10 +90,10 @@ match.
 
 | # | Skill | Source | Closest GURPS 4e skills | Fit |
 |---:|---|---|---|---|
-| 50 | Scribe | 3.36.2 | Writing; Calligraphy; Research | Broad |
+| 50 | Scribe | 3.36.2 | Writing; Artist (Calligraphy); Research | Broad |
 | 51 | Pottery | 3.36.3 | Artist (Pottery) | Very close |
 | 52 | Herbalist | 3.36.1 | Herb Lore; Gardening | Very close |
-| 53 | Smithing | New | Smith; Metallurgy; Armoury | Close |
+| 53 | Smithing | New | Smith (Iron, Copper, Lead and Tin); Metallurgy; Armoury (Body Armor, Melee Weapons, Missile Weapons) | Close |
 
 ### Movement
 
@@ -149,7 +150,6 @@ says that Cavalry automatically bestows it; the skill had no number until now.
 
 ## Open items
 
-- Check the GURPS names above against the Basic Set.
 - Set the cost order of Dispelling, Beast Mastery, and Enchantment. Rules 3.4
   lists the magic skills in order of increasing cost, and that order does not
   follow the skill numbers.
