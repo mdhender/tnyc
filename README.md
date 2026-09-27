@@ -8,6 +8,7 @@ An unfaithful remake of a lost(?) classic.
 - [Entity reference](docs/references/entity.md)
 - [Glossary](docs/references/glossary.md)
 - [Skills](docs/references/skills.md)
+- [Skill tree](docs/references/skill-tree.md)
 - [GURPS 4e skill gap review](docs/research/gurps-skill-gaps.md)
 - [T'Nyc rules](docs/references/rules.md)
 
