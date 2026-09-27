@@ -440,7 +440,7 @@ Complete Alphabetical Skill List for GURPS 4th Edition compiled by Eric B. Smith
 | Power Blow | Will | H | Prereq: Trained By A Master or Weapon Master | B215 |
 | Pressure Points | IQ | H | Esoteric Medicine-4, Prereq: Trained By A Master or Weapon Master | B215 |
 | Pressure Secrets | IQ | VH | Prereq: Trained By A Master, Pressure Points@16 | B215 |
-| Professional Skill | DX or IQ | A | Special |  |
+| Professional Skill | DX or IQ | A | Special | B215 |
 | Propaganda/TL | IQ | A | IQ-5, Merchant-5, Psychology-4 | B216 |
 | Prospecting/TL | IQ | A | IQ-5, Geology/TL-4 | B216 |
 | Psychology | IQ | H | IQ-6, Sociology-4 | B216 |
