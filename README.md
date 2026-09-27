@@ -7,6 +7,7 @@ An unfaithful remake of a lost(?) classic.
 - [Engines](docs/engines.md)
 - [Entity reference](docs/references/entity.md)
 - [Glossary](docs/references/glossary.md)
+- [GURPS 4e skill gap review](docs/research/gurps-skill-gaps.md)
 - [T'Nyc rules](docs/references/rules.md)
 
 ## Importing a world
