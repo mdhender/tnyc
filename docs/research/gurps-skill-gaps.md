@@ -19,7 +19,8 @@ strategic PBM.
 The GURPS skill names below come from the Basic Set skill list, filtered to
 low-tech (TL0–4) and fantasy-relevant skills, and were checked against the
 [GURPS 4e skill inventory](gurps-4-skill-inventory.md). Professional Skill is
-not in the inventory, so the Professional Skill entries are unverified. Spell
+missing from the inventory but is in the Basic Set: each job skill is its own
+Professional Skill (DX or IQ/Average), such as Professional Skill (Weaver). Spell
 colleges are not skills and are named as in GURPS Magic.
 
 ## How skill numbers are allocated
