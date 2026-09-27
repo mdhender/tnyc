@@ -9,6 +9,20 @@
   commit.
 - Run the relevant tests and formatting checks before committing and pushing.
 
+# Datastore Status
+
+- The JSON datastore (`tnyc.json`, see `datastore.go`) is a stopgap. Keep using
+  it and extend it as the game needs.
+- Do not start work on the SQLite datastore until all of the following are
+  true:
+  1. we have a working version of the game;
+  2. the rules are documented; and
+  3. we understand the engines' requirements.
+- The SQLite rules in "Database Safety" below describe the future SQLite
+  datastore. They do not apply to the JSON stopgap, and they are not a reason to
+  begin the SQLite work early. The rule against creating missing directory paths
+  applies to both.
+
 # Database Safety
 
 - Database create and initialize commands must never create missing directory
