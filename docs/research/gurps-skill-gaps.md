@@ -116,7 +116,7 @@ keeps them from being proposed again.
 | Diplomacy; Politics; Streetwise; Fast-Talk; Detect Lies; Intelligence Analysis | Intrigue |
 | Savoir-Faire; Heraldry; Carousing | Courtliness |
 | Public Speaking; Propaganda; Leadership (civil) | Oratory |
-| Shadowing; Observation; Search; Lockpicking; Filch; Escape; Disguise; Holdout | Stealth |
+| Shadowing; Observation; Search; Lockpicking; Filch; Escape; Disguise; Holdout; Poisons | Stealth |
 | Tracking; Naturalist; Survival (Woodlands); Traps; Weather Sense | Tracking, Forestry |
 | Navigation (Sea); Seamanship; Shiphandling; Meteorology (at sea) | Sailing |
 | Strategy (Naval) | Naval Tactics |
@@ -129,7 +129,6 @@ keeps them from being proposed again.
 | Herb Lore; Gardening | Herbalist |
 | Writing; Research; Literature | Scribe, Lore |
 | History; Occultism; Hidden Lore; Area Knowledge; Cartography | Lore |
-| Poisons | Stealth or Medicine (to decide) |
 | Games; Gambling | Gaming |
 | Performance; Singing; Musical Instrument; Dancing | Entertainment |
 | Animal Handling (livestock) | Herding |
@@ -152,15 +151,10 @@ keeps them from being proposed again.
 3. The game needs army supply, so Logistics is a candidate.
 4. The trade-good list is tracked in
    [issue #6](https://github.com/mdhender/tnyc/issues/6).
-
-## Open questions
-
-1. Where does Poisons belong? Rules 4.1.4.1 mentions assassins, but there are
-   no assassination or poison rules, so it could fold into Stealth, fold into
-   Medicine, become its own skill, or be dropped.
+5. Poisons fold into Stealth.
 
 ## Next steps
 
 - Check the GURPS names and categories above against the Basic Set.
-- Decide on the Strong candidates and the open question.
+- Decide on the Strong candidates.
 - Record accepted skills, with numbers, in the rules documentation.
