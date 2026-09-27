@@ -152,9 +152,9 @@ keeps them from being proposed again.
 4. The trade-good list is tracked in
    [issue #6](https://github.com/mdhender/tnyc/issues/6).
 5. Poisons fold into Stealth.
+6. All Strong candidates are accepted. They are numbered and described in the
+   [skill reference](../references/skills.md).
 
 ## Next steps
 
 - Check the GURPS names and categories above against the Basic Set.
-- Decide on the Strong candidates.
-- Record accepted skills, with numbers, in the rules documentation.
