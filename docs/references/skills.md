@@ -152,6 +152,7 @@ says that Cavalry automatically bestows it; the skill had no number until now.
 
 - Set the cost order of Dispelling, Beast Mastery, and Enchantment. Rules 3.4
   lists the magic skills in order of increasing cost, and that order does not
-  follow the skill numbers.
+  follow the skill numbers
+  ([issue #8](https://github.com/mdhender/tnyc/issues/8)).
 - Fill the rest of the provincial production range once the trade-good list
   ([issue #6](https://github.com/mdhender/tnyc/issues/6)) exists.
