@@ -9,7 +9,7 @@ An unfaithful remake of a lost(?) classic.
 - [Glossary](docs/references/glossary.md)
 - [Skills](docs/references/skills.md)
 - [Skill tree](docs/references/skill-tree.md)
-- [GURPS 4e skill gap review](docs/research/gurps-skill-gaps.md)
+- [GURPS 4e skill gap review](docs/research/gurps-4e-skill-gaps.md)
 - [T'Nyc rules](docs/references/rules.md)
 
 ## Importing a world

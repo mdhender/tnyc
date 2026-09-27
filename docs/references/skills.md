@@ -2,14 +2,14 @@
 
 This is the consolidated T'Nyc skill list. It combines the original skills from
 the [rules](rules.md) (section 3) with the skills accepted in the
-[GURPS 4e skill gap review](../research/gurps-skill-gaps.md), and records the
+[GURPS 4e skill gap review](../research/gurps-4e-skill-gaps.md), and records the
 closest GURPS Fourth Edition skills for each.
 
 The GURPS column is a functional mapping, not a claim of mechanical
 equivalence. T'Nyc skills are deliberately broader than GURPS skills.
 
 GURPS skill names were checked against the
-[GURPS 4e skill inventory](../research/gurps-4-skill-inventory.md). Spell
+[GURPS 4e skill inventory](../research/gurps-4e-skill-inventory.md). Spell
 colleges and advantages are not skills, so the magic rows could not be checked
 that way.
 
