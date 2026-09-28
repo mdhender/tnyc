@@ -9,9 +9,9 @@ The GURPS column is a functional mapping, not a claim of mechanical
 equivalence. T'Nyc skills are deliberately broader than GURPS skills.
 
 GURPS skill names were checked against the
-[GURPS 4e skill inventory](../research/gurps-4e-skill-inventory.md). Spell
-colleges and advantages are not skills, so the magic rows could not be checked
-that way.
+[GURPS 4e skill inventory](../research/gurps-4e-skill-inventory.md), and spell
+college names against the
+[GURPS 4e magic colleges](../research/gurps-4e-magic-colleges.md) table.
 
 ## Ratings and costs
 
@@ -51,7 +51,7 @@ match.
 | 9 | Intrigue | 3.31.8 | Politics; Diplomacy; Fast-Talk; Detect Lies; Streetwise; Intelligence Analysis | Broad |
 | 10 | Lore | 3.31.5 | Hidden Lore; History; Occultism; Area Knowledge; Research; Cartography; Expert Skill | Broad |
 | 11 | Oratory | 3.31.6 | Public Speaking; Propaganda | Very close |
-| 12 | Medicine | 3.31.7 | Physician; First Aid; Diagnosis; Surgery; Pharmacy (Herbal) | Broad |
+| 12 | Medicine | 3.31.7 | Physician; First Aid; Diagnosis; Surgery; Pharmacy (Herbal); Healing college | Broad |
 | 13 | Melee | 3.32.3 | Broadsword; Axe/Mace; Spear; other melee weapon skills; Brawling; Shield | Very broad |
 | 14 | Military Leadership | 3.32.4 | Leadership; Soldier | Very close |
 | 15 | Military Tactics | 3.32.5 | Tactics; Strategy (Land) | Broad |
@@ -72,16 +72,16 @@ match.
 
 | # | Skill | Source | Closest GURPS 4e skills | Fit |
 |---:|---|---|---|---|
-| 32 | Magic Resistance | 3.34.1 | Magic Resistance advantage | Conceptual |
-| 33 | Fire Magic | 3.34.2 | Fire college spells | Conceptual |
-| 34 | Earth Magic | 3.34.3 | Earth college spells | Conceptual |
-| 35 | Air Magic | 3.34.4 | Air college spells | Conceptual |
-| 36 | Water Magic | 3.34.5 | Water college spells | Conceptual |
-| 37 | Scrying | 3.34.6 | Knowledge and Communication spells; divination | Conceptual |
-| 38 | Gatecraft | 3.34.7 | Gate college spells | Conceptual |
-| 39 | Illusions | 3.34.8 | Illusion spells | Conceptual |
-| 40 | Summoning | 3.34.10 | Gate and Necromantic summoning spells | Conceptual |
-| 41 | Necromancy | 3.34.9 | Necromantic spells | Conceptual |
+| 32 | Magic Resistance | 3.34.1 | Magic Resistance advantage (B67) | Conceptual |
+| 33 | Fire Magic | 3.34.2 | Fire college | Conceptual |
+| 34 | Earth Magic | 3.34.3 | Earth college | Conceptual |
+| 35 | Air Magic | 3.34.4 | Air college; Weather college; Movement college (flight) | Conceptual |
+| 36 | Water Magic | 3.34.5 | Water college; Weather college | Conceptual |
+| 37 | Scrying | 3.34.6 | Knowledge college | Conceptual |
+| 38 | Gatecraft | 3.34.7 | Gate college; Movement college (teleportation) | Conceptual |
+| 39 | Illusions | 3.34.8 | Illusion and Creation college; Light and Darkness college; Sound college | Conceptual |
+| 40 | Summoning | 3.34.10 | Gate college; Necromantic college (summoning spells) | Conceptual |
+| 41 | Necromancy | 3.34.9 | Necromantic college | Conceptual |
 | 42 | Dispelling | New | Meta-Spells college (Dispel Magic, Counterspell); Exorcism | Conceptual |
 | 43 | Beast Mastery | New | Animal college; Animal Handling; Veterinary | Conceptual |
 | 44 | Enchantment | New | Enchantment college; Making and Breaking college; Alchemy | Conceptual |
@@ -152,6 +152,7 @@ says that Cavalry automatically bestows it; the skill had no number until now.
 
 - Set the cost order of Dispelling, Beast Mastery, and Enchantment. Rules 3.4
   lists the magic skills in order of increasing cost, and that order does not
-  follow the skill numbers.
+  follow the skill numbers
+  ([issue #8](https://github.com/mdhender/tnyc/issues/8)).
 - Fill the rest of the provincial production range once the trade-good list
   ([issue #6](https://github.com/mdhender/tnyc/issues/6)) exists.

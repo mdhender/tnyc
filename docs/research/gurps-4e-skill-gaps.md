@@ -19,8 +19,9 @@ strategic PBM.
 The GURPS skill names below come from the Basic Set skill list, filtered to
 low-tech (TL0–4) and fantasy-relevant skills, and were checked against the
 [GURPS 4e skill inventory](gurps-4e-skill-inventory.md). Each job skill is its
-own Professional Skill, such as Professional Skill (Weaver). Spell
-colleges are not skills and are named as in GURPS Magic.
+own Professional Skill, such as Professional Skill (Weaver). Spell college
+names were checked against the
+[GURPS 4e magic colleges](gurps-4e-magic-colleges.md) table.
 
 ## How skill numbers are allocated
 
@@ -106,6 +107,37 @@ because training Cavalry consumes a horse.
 | Boating | Boating | River travel on the navigable rivers shown on the map. Only if river movement is distinct from Sailing. | Possible |
 | Survival | Survival; Hiking; Navigation (Land) | Movement and attrition in deserts, wastes, and other hostile terrain. Overlaps Tracking. | Weak |
 
+## Spell colleges
+
+Every GURPS 4e college, and where it lands in T'Nyc:
+
+| College | T'Nyc skill |
+|---|---|
+| Air | Air Magic |
+| Animal | Beast Mastery |
+| Body Control | None (see Rejected) |
+| Communication and Empathy | Mind Magic candidate |
+| Earth | Earth Magic |
+| Enchantment | Enchantment |
+| Fire | Fire Magic |
+| Food | Nature Magic candidate |
+| Gate | Gatecraft, Summoning |
+| Healing | Medicine (rules 3.31.7 covers magical healing) |
+| Illusion and Creation | Illusions |
+| Knowledge | Scrying |
+| Light and Darkness | Illusions |
+| Making and Breaking | Enchantment |
+| Meta-Spells | Dispelling |
+| Mind Control | Mind Magic candidate |
+| Movement | Air Magic (flight), Gatecraft (teleportation) |
+| Necromantic | Necromancy, Summoning |
+| Plant | Nature Magic candidate |
+| Protection and Warning | Warding candidate |
+| Sound | Illusions |
+| Technological | None (see Rejected) |
+| Water | Water Magic |
+| Weather | Air Magic, Water Magic (rules 3.34.4 and 3.34.5) |
+
 ## Covered by existing skills
 
 These GURPS areas matter to T'Nyc but already have a home. Listing them here
@@ -144,7 +176,8 @@ keeps them from being proposed again.
 | Theology; Religious Ritual | The setting has no religion mechanics. Revisit if temples or priests are added; Exorcism is covered by Dispelling. |
 | Cooking; Housekeeping; Sewing (personal) | Too small-scale for a strategic PBM. Cooking may return as part of army supply. |
 | Acrobatics; Jumping; Running; Climbing (personal) | Personal athletics with no strategic effect. Climbing is folded into Mountaineering. |
-| Psionics; high-tech skills | Out of setting. |
+| Psionics; high-tech skills; Technological college | Out of setting. |
+| Body Control college | Personal combat magic with no strategic effect. |
 
 ## Decisions
 
